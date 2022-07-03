@@ -1,0 +1,42 @@
+#Prosty program który ma na celu ułatwić ludziom szybsze tworzenie trasy google maps bez potrzeby uzywania GUI. Najpierw pyta czy trasa ma byc bezposrednia czy przebiegac przez dane punkty, następnie pobiera lokalizacje od uzytkownika i z danych wartosci konstruuje link i otwiera domyślną przeglądarke.
+
+
+import webbrowser, sys, time,  requests
+
+mapa = ('https://www.google.pl/maps/dir/')
+
+print('czy trasa bedzie prowadzic przez określone punkty? wpisz t lub n (t - tak; n - nie)')
+trasa = input('')
+if len(trasa) == 1:
+    if trasa == 't':
+        print('podaj początek trasy')
+        poczatek = input('')
+
+        print('podaj koniec trasy')
+        koniec = input('')
+
+        print('podaj przez jakie punkty ma przechodzic. oddziel je ukośnikami (np. "warszawa/poznań/giżyczko")')
+        punkty = input('')
+
+        webbrowser.open(mapa + poczatek + '/' + punkty + '/' + koniec + '/')
+        print("włączam google maps")
+
+        time.sleep(5)
+
+    elseif trasa == 'n':
+        print('podaj początek trasy')
+        poczatek = input('')
+
+        print('podaj koniec trasy')
+        koniec = input('')
+
+        webbrowser.open(mapa + poczatek + '/' + koniec + '/')
+        print("włączam google maps")
+
+        time.sleep(5)
+    else:
+    print('złe wartości zostały podane program ulegnie samozniszczeniu za 5 sekund')
+    time.sleep(5)
+else:
+    print('złe wartości zostały podane program ulegnie samozniszczeniu za 5 sekund')
+    time.sleep(5)
